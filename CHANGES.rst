@@ -14,7 +14,8 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Fix test to use new zope testbrowser internals.
+  [davisagli]
 
 
 4.2.0 (2017-03-26)

@@ -5,6 +5,7 @@ from plone.namedfile.interfaces import IBlobby
 from plone.namedfile.utils.jpeg_utils import process_jpeg
 from plone.namedfile.utils.png_utils import process_png
 from plone.namedfile.utils.tiff_utils import process_tiff
+from plone.namedfile.utils.svg_utils import is_svg
 from plone.registry.interfaces import IRegistry
 from Products.CMFPlone.interfaces.controlpanel import IImagingSchema
 from StringIO import StringIO
@@ -134,6 +135,9 @@ def getImageInfo(data):
     elif (size >= 4) and data[:4] in ['MM\x00*', 'II*\x00']:
         # handle TIFFs
         content_type, width, height = process_tiff(data)
+
+    elif is_svg(StringIO(data)):
+        content_type = 'image/svg+xml'
 
     else:
         # Use PIL / Pillow to determ Image Information

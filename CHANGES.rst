@@ -14,6 +14,12 @@ New features:
 
 Bug fixes:
 
+- Fix #46, when ``process_png``, ``process_jpeg`` and ``process_tiff`` could fail with a ``width referenced before assignment`` error.
+  [thet]
+
+- Fix contentType attribute should be str type, what leads to validation errors (fixes `#38`_).
+  [rodfersou]
+
 - Fix bug on Image rotation if ImageIFD.XResolution or ImageIFD.YResolution are not set.
   [loechel]
 
@@ -461,3 +467,6 @@ Fixes:
 ------------------
 
 * Initial release
+
+
+.. _`#38`: https://github.com/plone/plone.namedfile/issues/38
